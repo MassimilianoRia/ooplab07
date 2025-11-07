@@ -1,0 +1,12 @@
+# Ignora tutto
+/*
+
+# Non ignora le cartelle src
+!*/src/
+
+# Non ignora i file all'interno delle cartelle src
+!*/src/*
+
+# Non ignorare .gitignore e .gitattributes
+!.gitignore
+!.gitattributes
