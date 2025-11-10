@@ -1,5 +1,8 @@
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+
 plugins {
     java
+
 }
 
 repositories {
@@ -15,12 +18,11 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
-tasks.test {
+tasks.withType<Test> {
+    // Use junit platform for unit tests
     useJUnitPlatform()
-    testLogging { events("passed", "skipped", "failed") }
+    testLogging {
+        events(*(TestLogEvent.values())) // events("passed", "skipped", "failed")
+    }
     testLogging.showStandardStreams = true
-}
-
-tasks.javadoc {
-    isFailOnError = false
 }
